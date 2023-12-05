@@ -25,6 +25,7 @@ sf::Clock gameClock;
 int framecount = 0;
 bool isGamePaused = false;
 std::string uiStatus = "";
+std::string menuStatus = "";
 sf::Texture uiSpriteTexture;
 sf::Texture keysSpriteTexture;
 sf::Texture puzzleCipherTexture;
@@ -51,6 +52,8 @@ bool showMinigameFeedbackDialog = false;
 
 bool puzzleCipherCompleted = false;
 bool vigenereCipherCompleted = false;
+bool brailleCipherCompleted = false;
+
 
 void pauseGame();
 void resumeGame();
@@ -63,8 +66,8 @@ Scene initMenuScene();
 sf::Vector2f centerByDimensions(sf::Vector2f orgVector, sf::Vector2i dimensions, bool invertAlignment = false);
 sf::Text dropShadow(sf::Text tx);
 
-sf::Sprite newButton(sf::Vector2f position, bool dontCenterByDimensions);
-sf::Sprite newButtonSquare(sf::Vector2f position, bool dontCenterByDimensions);
+sf::Sprite newButton(sf::Vector2f position, bool dontCenterByDimensions = false);
+sf::Sprite newButtonSquare(sf::Vector2f position, bool dontCenterByDimensions = false);
 void createPopup(std::string titleText, std::string bodyText);
 void createImagePopup(std::string imgPath);
 

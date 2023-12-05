@@ -75,7 +75,7 @@ void puzzleCipherRender(sf::RenderWindow& window) {
 
     // Check if the puzzle is solved
     if (!puzzleSolvedMessageDisplayed && isPuzzleSolved()) {
-        createPopup("Complete", "Congratulations, you solved the puzzle.");
+//        createPopup("Complete", "Congratulations, you solved the puzzle.");
         puzzleCipherCompleted = true;
         loadScene(initCipherScene(), true);
 

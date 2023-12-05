@@ -181,6 +181,10 @@ void initPuzzleCipherSprite()
 #define BACKGROUND_TEST_PATH "assets/imgs/SceneOne.png"
 #define BACKGROUND_ROCK_PATH "assets/imgs/rockbackground.png"
 #define BACKGROUND_CIPHER_PATH "assets/imgs/cipher.png"
+#define BACKGROUND_CIPHER_COMPLETE_PATH "assets/imgs/cipher_complete.png"
+#define FOREGROUND_CIPHER_PATH "assets/imgs/cipher_foreground.png"
+#define BACKGROUND_VIGENERE_PATH "assets/imgs/vigenere-cipher.png"
+#define BACKGROUND_BRAILLE_PATH "assets/imgs/braille_cipher.png"
 
 sf::Texture menuBgTexture;
 

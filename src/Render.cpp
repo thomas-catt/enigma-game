@@ -61,6 +61,7 @@ void setView()
 
 void clearScene() {
     uiStatus = "";
+    menuStatus = "";
     InteractionPoint nullInteraction;
     player.interactionInRange = nullInteraction;
 }
@@ -97,6 +98,14 @@ void loadScene(Scene scene, bool positionFromSaveFile)
             std::cout << "Failed to load from file: " << currentScene.backgroundSpritePath << std::endl;
 
         currentScene.backgroundSprite.setTexture(currentScene.background);
+    }
+
+
+    if (currentScene.foregroundEnabled) {
+        if (!currentScene.foreground.loadFromFile(currentScene.foregroundSpritePath))
+            std::cout << "Failed to load from file: " << currentScene.foregroundSpritePath << std::endl;
+
+        currentScene.foregroundSprite.setTexture(currentScene.foreground);
     }
 
 
@@ -281,6 +290,18 @@ void gameMenuRender(sf::RenderWindow& window) {
         }
 
         window.draw(menuItems[i]);
+    }
+
+    if (menuStatus.length())
+    { // this will be true when the uiStatus has text
+        sf::Text menuObjectiveText(menuStatus, UI_FONT_BODY);
+        menuObjectiveText.setPosition(40, SCREEN_H - 100);
+        menuObjectiveText.setCharacterSize(UI_BODY_2_SIZE);
+        textWrapper(menuObjectiveText, SCREEN_W - 80);
+        std::string textStr = menuObjectiveText.getString();
+        menuObjectiveText.setPosition(menuObjectiveText.getPosition().x, menuObjectiveText.getPosition().y - (stringCountOccurences(textStr, '\n') * menuObjectiveText.getCharacterSize()));
+
+        window.draw(menuObjectiveText);
     }
 
     window.draw(menuTitle);
@@ -507,6 +528,9 @@ void Render(sf::RenderWindow &window)
 
         if (currentScene.playerEnabled)
             window.draw(player.sprite);
+
+        if (currentScene.foregroundEnabled)
+            window.draw(currentScene.foregroundSprite);
     }
 
     onOverrideRender(window);

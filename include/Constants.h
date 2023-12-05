@@ -119,6 +119,7 @@ enum SceneLocation
     SCENE_CIPHER_GAME,
     SCENE_CIPHER_PUZZLE,
     SCENE_CIPHER_VIGENERE,
+    SCENE_CIPHER_BRAILLE,
     SCENE_PLATFORMER_GAME,
     SCENE_SNAKE_GAME
 };
@@ -150,7 +151,8 @@ enum DialogID {
     DIALOG_PLATFORMER_GAME,
     DIALOG_CIPHER_GAME,
     DIALOG_MINIGAME_VICTORY,
-    DIALOG_MINIGAME_DEFEAT
+    DIALOG_MINIGAME_DEFEAT,
+    DIALOG_CIPHER_GOBACK,
 };
 
 /* The NPC struct is primarily for placing animated Non-Playable Characters in
@@ -223,6 +225,10 @@ struct Scene
     std::string backgroundSpritePath;
     sf::Texture background;
     sf::Sprite backgroundSprite;
+    bool foregroundEnabled = false;
+    std::string foregroundSpritePath;
+    sf::Texture foreground;
+    sf::Sprite foregroundSprite;
     sf::View view = sf::View(sf::FloatRect(0, 0, -1, -1));
 
     bool noView = false;

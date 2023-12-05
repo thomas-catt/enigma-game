@@ -27,6 +27,10 @@ void onOverrideEvent(sf::Event event) {
             onVigenereEvent(event);
             break;
 
+        case SCENE_CIPHER_BRAILLE:
+            onBrailleEvent(event);
+            break;
+
         /* An example would be:
 
         case SCENE_TEST_SCENE:
@@ -69,6 +73,10 @@ void onOverrideRender(sf::RenderWindow& window) {
 
         case SCENE_CIPHER_VIGENERE:
             onVigenereRender(window);
+            break;
+
+        case SCENE_CIPHER_BRAILLE:
+            onBrailleRender(window);
             break;
 
         /* An example would be:

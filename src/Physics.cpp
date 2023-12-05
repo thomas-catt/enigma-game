@@ -19,8 +19,10 @@ bool PhysicsValidatePosition(sf::Vector2f testPosition)
         if ((hitbox.left + hitbox.top + hitbox.width + hitbox.height))
         {
             sf::IntRect playerHitbox(testPosition.x + (PLAYER_SPRITE_WIDTH / 4), testPosition.y + (PLAYER_SPRITE_HEIGHT / 2), PLAYER_SPRITE_WIDTH / 2, PLAYER_SPRITE_HEIGHT / 2);
-            if (hitbox.intersects(playerHitbox))
+            if (hitbox.intersects(playerHitbox)) {
+//                std::cout << "player collision with hitbox #" << i << std::endl;
                 return false;
+            }
         }
     }
 

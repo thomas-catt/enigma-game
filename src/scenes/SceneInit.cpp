@@ -40,6 +40,10 @@ void onSceneInit(SceneLocation sceneLocation) {
         case SCENE_CIPHER_VIGENERE:
             onVigenereStart();
             break;
+
+        case SCENE_CIPHER_BRAILLE:
+            onBrailleStart();
+            break;
     }
 
 }

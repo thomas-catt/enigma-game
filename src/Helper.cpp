@@ -115,3 +115,34 @@ bool WriteSaveFile(bool rockKey, bool snakeKey, bool cipherKey, SceneLocation cu
     data.close();
     return true;
 }
+
+
+int stringLength(char s[]) {
+    int length = 0;
+    for (int i = 0; s[i] != '\0'; i++)
+        length++;
+
+    return length;
+}
+
+int stringCountOccurences(std::string str, char key) {
+    int occurences = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == key)
+            occurences++;
+    }
+
+    return occurences;
+}
+
+bool stringCompare(char str1[], char str2[]) {
+    if (stringLength(str1) != stringLength(str2))
+        return false;
+
+    for (int i = 0; str1[i] != '\0'; i++) {
+        if (str1[i] != str2[i])
+            return false;
+    }
+
+    return true;
+}

@@ -69,6 +69,8 @@ void onEscape() {
     if (currentScene.type == SCENE_MENU) return;
     isGamePaused = !isGamePaused;
     isDialogOpen = false;
+    isPopupOpen = false;
+    isImagePopupOpen = false;
 }
 
 /* Finally, the EventHandler is the heart of all the event handling in the

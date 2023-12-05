@@ -207,3 +207,28 @@ Dialog wonMiniGameDialog(Minigame minigame) {
     d.messages[finalDialogIndex].message = setKeysDialogTx();
     return d;
 }
+
+Dialog playerCipherGoBackDialog() {
+    Dialog d;
+    d.identifier = DIALOG_CIPHER_GOBACK;
+    if (puzzleCipherCompleted && vigenereCipherCompleted && brailleCipherCompleted) {
+        d.messages[0].speaker = playerChar;
+        d.messages[0].message = "This is new.";
+        d.messages[1].speaker = playerChar;
+        d.messages[1].message = "Time to jump in.";
+
+    } else {
+        d.messages[0].speaker = playerChar;
+        d.messages[0].message = "It's too dark down there...";
+        d.messages[1].speaker = playerChar;
+        d.messages[1].message = "I wonder what these stairs are for.";
+        d.messages[2].speaker = playerChar;
+        d.messages[2].message = "I think I should try walking in-";
+        d.messages[3].speaker = playerChar;
+        d.messages[3].message = "...";
+        d.messages[4].speaker = playerChar;
+        d.messages[4].message = "...nevermind.";
+    }
+
+    return d;
+}

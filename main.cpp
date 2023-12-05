@@ -29,6 +29,7 @@
 #include "src/scenes/CipherScene.cpp"
 #include "src/scenes/PuzzleCipherScene.cpp"
 #include "src/scenes/VigenereCipherScene.cpp"
+#include "src/scenes/BrailleCipherScene.cpp"
 
 /* Source files */
 #include "src/UI.cpp"

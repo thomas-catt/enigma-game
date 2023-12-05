@@ -43,7 +43,7 @@ void miniGameDefeat(Minigame lostMiniGame) {
     minigameFeedbackDialog = lostMiniGameDialog(lostMiniGame);
     showMinigameFeedbackDialog = true;
 
-    loadScene(initOptimusPrimeScene(), lastSceneLocation == SCENE_OPTIMUS);
+    loadScene(initOptimusPrimeScene(), true);
 }
 
 void miniGameVictory(Minigame wonMiniGame, bool& wonKey) {
@@ -51,7 +51,7 @@ void miniGameVictory(Minigame wonMiniGame, bool& wonKey) {
 
     showMinigameFeedbackDialog = true;
     wonKey = true;
-    loadScene(initOptimusPrimeScene(), lastSceneLocation == SCENE_OPTIMUS);
+    loadScene(initOptimusPrimeScene(), true);
 }
 
 void onGameMenuNavigation(InputAction action, int value = 0) {
@@ -142,7 +142,7 @@ void playerLoop()
 
         player.sprite.move(effectiveMovementVector);
 
-        std::cout << "player position: " << player.sprite.getPosition().x << " " << player.sprite.getPosition().y << std::endl;
+//        std::cout << "player position: " << player.sprite.getPosition().x << " " << player.sprite.getPosition().y << std::endl;
 
         if (player.movementVector.x == 0 && player.movementVector.y == 0)
             player.moving = false;
@@ -157,7 +157,10 @@ void playerLoop()
 void postInteraction(DialogID DialogIdentifier) {
     switch (DialogIdentifier) {
         case DIALOG_GUIDE_FIRST:
-            if (countKeys() == 3) loadScene(initCreditsScene());
+            if (countKeys() == 3) {
+                newGame = true;
+                loadScene(initCreditsScene());
+            }
             break;
         case DIALOG_PLAYER_BEFORE_CAVE:
             loadScene(initOptimusPrimeScene());
@@ -172,6 +175,10 @@ void postInteraction(DialogID DialogIdentifier) {
             loadScene(initPlatformerScene());
             break;
         case DIALOG_MINIGAME_VICTORY:
+            break;
+        case DIALOG_CIPHER_GOBACK:
+            if (puzzleCipherCompleted && vigenereCipherCompleted && brailleCipherCompleted)
+                miniGameVictory(MINIGAME_CIPHER, keysStore.cipher);
             break;
     }
 }
@@ -225,6 +232,9 @@ void handleTravel(SceneLocation location, bool positionFromSaveFile)
         break;
     case SCENE_CIPHER_VIGENERE:
         loadScene(initVigenereCipherScene(), positionFromSaveFile);
+        break;
+    case SCENE_CIPHER_BRAILLE:
+        loadScene(initBrailleCipherScene(), positionFromSaveFile);
         break;
     case SCENE_PLATFORMER_GAME:
         loadScene(initPlatformerScene(), positionFromSaveFile);
