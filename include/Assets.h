@@ -22,9 +22,11 @@ enum PLAYER_SPRITE_DIR
     PLAYER_SPRITE_RIGHT
 };
 
-/* Rock texture */
+/* Game textures */
 
 #define ROCK_TEXTURE_PATH "assets/sprites/DawayneJohnsun.png"
+#define ROCK_RED_TEXTURE_PATH "assets/sprites/DawayneTheRedJohnson.png"
+#define PLATFORMER_PLATFORM_PATH "assets/imgs/platformer-platform.png"
 
 /* Guide character constants */
 
@@ -33,7 +35,7 @@ NPC guideChar;
 void initGuideCharSprite()
 {
     guideChar.path = "assets/sprites/character_guide.png";
-    guideChar.name = "Guide";
+    guideChar.name = "Aurelius";
     guideChar.width = 32;
     guideChar.height = 32;
 
@@ -51,7 +53,7 @@ NPC rockChar;
 void initRockCharSprite()
 {
     rockChar.path = "assets/sprites/golem.png";
-    rockChar.name = "Rock Guy";
+    rockChar.name = "Goliath";
     rockChar.width = 80;
     rockChar.height = 108;
 
@@ -68,7 +70,7 @@ NPC cipherChar;
 void initCipherCharSprite()
 {
     cipherChar.path = "assets/sprites/character_cipher.png";
-    cipherChar.name = "Cipher Guy";
+    cipherChar.name = "Mystico";
     cipherChar.width = 68;
     cipherChar.height = 96;
 
@@ -84,8 +86,8 @@ void initCipherCharSprite()
 NPC horseChar;
 void initHorseCharSprite()
 {
-    horseChar.path = "assets/sprites/character_platformer_new.png";
-    horseChar.name = "Horse";
+    horseChar.path = "assets/sprites/character_platformer_horse.png";
+    horseChar.name = "Infernostrider";
     horseChar.width = 120;
     horseChar.height = 80;
 
@@ -101,12 +103,12 @@ NPC platformerChar;
 void initPlatformerCharSprite()
 {
     platformerChar.path = "assets/sprites/demon-idle.png";
-    platformerChar.name = "Horse";
+    platformerChar.name = "Infernoscorch";
     platformerChar.width = 160;
     platformerChar.height = 144;
 
     platformerChar.animFrames = 6;
-    platformerChar.animSpeed = 83; // 12 FPS
+    platformerChar.animSpeed = 150;
 
     if (!platformerChar.texture.loadFromFile(platformerChar.path))
         std::cout << "Failed to load from file: " << platformerChar.path << std::endl;
@@ -177,14 +179,16 @@ void initPuzzleCipherSprite()
 
 #define BACKGROUND_MENU_PATH "assets/imgs/ParallexBG.png"
 #define BACKGROUND_DEMO_PATH "assets/imgs/demo-bg-sprite.jpg"
-#define BACKGROUND_OPTIMUS_PRIME_PATH "assets/imgs/main-bg.png"
+#define BACKGROUND_OPTIMUS_PRIME_PATH "assets/imgs/Other_World_Map.png"
 #define BACKGROUND_TEST_PATH "assets/imgs/SceneOne.png"
 #define BACKGROUND_ROCK_PATH "assets/imgs/rockbackground.png"
+#define BACKGROUND_PLATFORMER_PATH_PREFIX "assets/imgs/platformer_bg_"
 #define BACKGROUND_CIPHER_PATH "assets/imgs/cipher.png"
 #define BACKGROUND_CIPHER_COMPLETE_PATH "assets/imgs/cipher_complete.png"
 #define FOREGROUND_CIPHER_PATH "assets/imgs/cipher_foreground.png"
 #define BACKGROUND_VIGENERE_PATH "assets/imgs/vigenere-cipher.png"
 #define BACKGROUND_BRAILLE_PATH "assets/imgs/braille_cipher.png"
+#define PLATFORMER_OBSTACLE_PATH "assets/imgs/platformer-obstacle.png"
 
 sf::Texture menuBgTexture;
 

@@ -66,6 +66,7 @@ void onMovement(sf::Vector2f dir) {
  * presses the Esc key.
  * */
 void onEscape() {
+    if (isPopupOpen || isImagePopupOpen) return hidePopup();
     if (currentScene.type == SCENE_MENU) return;
     isGamePaused = !isGamePaused;
     isDialogOpen = false;

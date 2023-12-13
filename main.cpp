@@ -18,7 +18,7 @@
 
 /* Scene files */
 #include "src/scenes/DemoScene.cpp"
-#include "src/scenes/TestScene.cpp"
+#include "src/scenes/OverworldScene.cpp"
 #include "src/scenes/IntroScene.cpp"
 #include "src/scenes/CreditsScene.cpp"
 #include "src/scenes/MenuScene.cpp"
@@ -33,7 +33,7 @@
 
 /* Source files */
 #include "src/UI.cpp"
-#include "src/scenes/SceneInit.cpp"
+#include "src/SceneInit.cpp"
 #include "src/Physics.cpp"
 #include "src/Game.cpp"
 #include "src/Render.cpp"
@@ -53,9 +53,6 @@ int main() {
 
     // Preloading the fonts and UI spritesheet:
     loadAssets();
-
-    // Set a non-timezone-dependent time:
-    srand(static_cast<unsigned>(time(nullptr)));
 
     // Loading the first scene, the MenuScene.cpp: (initMenuScene is defined in
     // MenuScene.cpp)

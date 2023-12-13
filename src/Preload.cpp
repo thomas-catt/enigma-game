@@ -21,8 +21,20 @@ void loadAssets() {
         std::cout << "Failed to load Rock." << std::endl;
     }
 
+    if (!redRockTexture.loadFromFile(ROCK_RED_TEXTURE_PATH)) {
+        std::cout << "Failed to load Rock." << std::endl;
+    }
+
     if (!puzzleCipherTexture.loadFromFile(PUZZLE_CIPHER_PATH)) {
         std::cout << "Failed to load from file: " << PUZZLE_CIPHER_PATH << std::endl;
+    }
+
+    if (!platformerPlatformTexture.loadFromFile(PLATFORMER_PLATFORM_PATH)) {
+        std::cout << "Failed to load from file: " << PLATFORMER_PLATFORM_PATH << std::endl;
+    }
+
+    if (!platformerObstacleTexture.loadFromFile(PLATFORMER_OBSTACLE_PATH)) {
+        std::cout << "Failed to load from file: " << PLATFORMER_OBSTACLE_PATH << std::endl;
     }
 
     initGuideCharSprite();

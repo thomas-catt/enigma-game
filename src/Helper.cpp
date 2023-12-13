@@ -77,7 +77,7 @@ void textWrapper(sf::Text &text, int width, int continueIndex = 0)
     }
 }
 
-bool ReadSaveFile(bool& rockKey, bool& snakeKey, bool& cipherKey, SceneLocation& currentSceneLocation, sf::Vector2f& lastPlayerPos)
+bool ReadSaveFile(bool& rockKey, bool& snakeKey, bool& cipherKey, SceneLocation& currentSceneLocation, bool& guideIntroduced, sf::Vector2f& lastPlayerPos)
 {
     std::ifstream data(SAVE_FILE_NAME);
 
@@ -85,11 +85,14 @@ bool ReadSaveFile(bool& rockKey, bool& snakeKey, bool& cipherKey, SceneLocation&
     {
         int currentSceneLocationInt = 0;
         int posX, posY;
+        int guideIntroducedBool;
 
         data >> rockKey >> snakeKey >> cipherKey;
         data >> currentSceneLocationInt;
+        data >> guideIntroducedBool;
         data >> posX >> posY;
 
+        guideIntroduced = (bool)guideIntroducedBool;
         currentSceneLocation = (SceneLocation)currentSceneLocationInt;
         lastPlayerPos = sf::Vector2f(posX, posY);
     } else {
@@ -99,7 +102,7 @@ bool ReadSaveFile(bool& rockKey, bool& snakeKey, bool& cipherKey, SceneLocation&
     return true;
 }
 
-bool WriteSaveFile(bool rockKey, bool snakeKey, bool cipherKey, SceneLocation currentSceneLocation, sf::Vector2f lastPlayerPos = sf::Vector2f(-1, -1))
+bool WriteSaveFile(bool rockKey, bool snakeKey, bool cipherKey, SceneLocation currentSceneLocation, bool guideIntroduced, sf::Vector2f lastPlayerPos = sf::Vector2f(-1, -1))
 {
     int keys = 0;
     std::ofstream data(SAVE_FILE_NAME);
@@ -108,6 +111,7 @@ bool WriteSaveFile(bool rockKey, bool snakeKey, bool cipherKey, SceneLocation cu
     {
         data << rockKey <<  " " << snakeKey  <<  " " << cipherKey  <<  " " << std::endl;
         data << (int)currentSceneLocation << std::endl;
+        data << (int)guideIntroduced << std::endl;
         data << (int)lastPlayerPos.x  <<  " " << (int)lastPlayerPos.y << std::endl;
     } else {
         return false;

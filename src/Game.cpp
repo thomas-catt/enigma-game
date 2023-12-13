@@ -17,11 +17,11 @@ void resumeGame()
 }
 
 void saveGame() {
-    if (currentScene.location == SCENE_CREDITS || currentScene.location == SCENE_MAIN_MENU || currentScene.type == SCENE_CUSTOM) return;
+    if (currentScene.location == SCENE_CREDITS || currentScene.location == SCENE_MAIN_MENU || currentScene.type == SCENE_CUSTOM || currentScene.location == SCENE_CIPHER_GAME) return;
 
     lastSceneLocation = currentScene.location;
     lastPlayerPosition = player.sprite.getPosition();
-    WriteSaveFile(keysStore.rock, keysStore.horse, keysStore.cipher, currentScene.location, player.sprite.getPosition());
+    WriteSaveFile(keysStore.rock, keysStore.horse, keysStore.cipher, currentScene.location, guideIntroduced, player.sprite.getPosition());
 }
 
 int countKeys() {
@@ -47,10 +47,10 @@ void miniGameDefeat(Minigame lostMiniGame) {
 }
 
 void miniGameVictory(Minigame wonMiniGame, bool& wonKey) {
-    minigameFeedbackDialog = wonMiniGameDialog(wonMiniGame);
-
-    showMinigameFeedbackDialog = true;
     wonKey = true;
+    minigameFeedbackDialog = wonMiniGameDialog(wonMiniGame);
+    showMinigameFeedbackDialog = true;
+
     loadScene(initOptimusPrimeScene(), true);
 }
 
@@ -142,7 +142,7 @@ void playerLoop()
 
         player.sprite.move(effectiveMovementVector);
 
-//        std::cout << "player position: " << player.sprite.getPosition().x << " " << player.sprite.getPosition().y << std::endl;
+        std::cout << "player position: " << player.sprite.getPosition().x << " " << player.sprite.getPosition().y << std::endl;
 
         if (player.movementVector.x == 0 && player.movementVector.y == 0)
             player.moving = false;
@@ -156,11 +156,20 @@ void playerLoop()
 
 void postInteraction(DialogID DialogIdentifier) {
     switch (DialogIdentifier) {
-        case DIALOG_GUIDE_FIRST:
+        case DIALOG_GUIDE_HELP:
             if (countKeys() == 3) {
                 newGame = true;
+                keysStore.cipher = false;
+                keysStore.rock = false;
+                keysStore.horse = false;
+                saveGame();
                 loadScene(initCreditsScene());
             }
+            break;
+        case DIALOG_GUIDE_INTRODUCTION:
+            guideIntroduced = true;
+            currentScene.interactibles[0].dialog = noGoingBackDialog();
+            saveGame();
             break;
         case DIALOG_PLAYER_BEFORE_CAVE:
             loadScene(initOptimusPrimeScene());
@@ -215,7 +224,7 @@ void handleTravel(SceneLocation location, bool positionFromSaveFile)
     case SCENE_SNAKE_GAME:
         loadScene(initSnakeScene(), positionFromSaveFile);
         break;
-    case SCENE_TEST_SCENE:
+    case SCENE_OVERWORLD:
         loadScene(initTestScene(), positionFromSaveFile);
         break;
     case SCENE_ROCK_GAME:

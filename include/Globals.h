@@ -5,6 +5,7 @@
  * */
 
 void onOverrideEvent(sf::Event event);
+void onOverridePreRender(sf::RenderWindow& window);
 void onOverrideRender(sf::RenderWindow& window);
 
 Scene currentScene;
@@ -30,6 +31,9 @@ sf::Texture uiSpriteTexture;
 sf::Texture keysSpriteTexture;
 sf::Texture puzzleCipherTexture;
 sf::Texture rockTexture;
+sf::Texture redRockTexture;
+sf::Texture platformerPlatformTexture;
+sf::Texture platformerObstacleTexture;
 
 bool isDialogOpen = false;
 bool isPopupOpen = false;
@@ -44,6 +48,7 @@ int loadingScene = 0;
 bool sceneLoaded = false;
 bool loadPositionFromFile = false;
 bool newGame = false;
+bool guideIntroduced = false;
 int currentDialogIndex = 0;
 int currentDialogStrCharacterIndex = 0;
 NPC currentDialogNPC;

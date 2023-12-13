@@ -27,7 +27,7 @@ Scene initDemoScene() {
     InteractionPoint changeSceneInteraction;
     changeSceneInteraction.name = INTERACTION_TRAVEL;
     changeSceneInteraction.label = "Go to Test Scene";
-    changeSceneInteraction.travelTo = SCENE_TEST_SCENE;
+    changeSceneInteraction.travelTo = SCENE_OVERWORLD;
     changeSceneInteraction.position = sf::Vector2f(175, 180);
 
     scene.interactibles[0] = changeSceneInteraction;

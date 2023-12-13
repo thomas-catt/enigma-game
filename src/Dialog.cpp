@@ -19,15 +19,6 @@ Dialog playerBeforeCave() {
     return d;
 }
 
-Dialog guideIntro() {
-    Dialog d;
-    d.title = "Talk to stranger";
-    d.messages[0].speaker = guideChar;
-    d.messages[0].message = "Hello Traveler! I hope you're doing good.";
-
-    return d;
-}
-
 Dialog testDialog() {
     Dialog d;
     d.title = "Talk to ???";
@@ -43,7 +34,7 @@ Dialog testDialog() {
 
 Dialog noGoingBackDialog() {
     Dialog d;
-    d.identifier = DIALOG_GUIDE_FIRST;
+    d.identifier = DIALOG_GUIDE_HELP;
     d.title = "No going back...";
     if (countKeys() == 3) {
         d.messages[0].speaker = guideChar;
@@ -78,6 +69,36 @@ Dialog noGoingBackDialog() {
     return d;
 }
 
+Dialog guideIntro() {
+    if (guideIntroduced) return noGoingBackDialog();
+    Dialog d;
+    d.title = "Talk to stranger";
+    d.identifier = DIALOG_GUIDE_INTRODUCTION;
+    d.messages[0].speaker = guideChar;
+    d.messages[0].speaker.name = "Guide";
+    d.messages[0].message = "Hello Traveler! I hope you're doing good.";
+    d.messages[1].speaker = guideChar;
+    d.messages[1].speaker.name = "Guide";
+    d.messages[1].message = "You seem... confused.";
+    d.messages[2].speaker = playerChar;
+    d.messages[2].message = "...";
+    d.messages[3].speaker = playerChar;
+    d.messages[3].message = "I have a ton of questions.";
+    d.messages[4].speaker = guideChar;
+    d.messages[4].speaker.name = "Guide";
+    d.messages[4].message = "No worries, I can help with them.";
+    d.messages[5].speaker = guideChar;
+    d.messages[5].message = "I'm Aurelius. If you're wondering about how to go back, then unfortunately it won't be that easy.";
+    d.messages[6].speaker = playerChar;
+    d.messages[6].message = "!?";
+    d.messages[7].speaker = guideChar;
+    d.messages[7].message = "Three keys are what you need to look for. Once done, you will be allowed to leave this realm.";
+    d.messages[8].speaker = guideChar;
+    d.messages[8].message = "Start your journey the sooner the better, and get back to me if you need anything.";
+
+    return d;
+}
+
 Dialog rockDialog() {
     Dialog d;
     d.title = "Rock";
@@ -104,20 +125,16 @@ Dialog horseDialog() {
     Dialog d;
     d.title = "Horse";
     d.identifier = DIALOG_PLATFORMER_GAME;
-//    d.messages[0].speaker = rockChar;
-//    d.messages[0].message = "Hello I am rock.";
-//    d.messages[1].speaker = guideChar;
-//    d.messages[1].message = "It seems my students do not fully understand what it means to wield the blade.";
-//    d.messages[2].speaker = rockChar;
-//    d.messages[2].message = "shut up this is my dialog not yours";
-//    d.messages[3].speaker = guideChar;
-//    d.messages[3].message = "sorry";
-//    d.messages[4].speaker = rockChar;
-//    d.messages[4].message = "okay so i have this uhh rock game thing, play it pls.";
     d.messages[0].speaker = platformerChar;
-    d.messages[0].message = "Run from me.";
-    d.messages[1].speaker = emptyChar;
-    d.messages[1].message = "Run from the horse approaching you!";
+    d.messages[0].message = "Care for a challenge, mortal?";
+    d.messages[1].speaker = platformerChar;
+    d.messages[1].message = "Race against the speed of my majestic steed, if you dare. Victory may elude you, for its hooves are faster than the very breath of the tempest.";
+
+    d.messages[2].speaker = horseChar;
+    d.messages[2].message = "The challenge amuses me, little one. Prepare for a speed beyond your fiery boasts.";
+
+    d.messages[3].speaker = emptyChar;
+    d.messages[3].message = "Run from the horse approaching you!";
 
     return d;
 }
@@ -140,15 +157,6 @@ Dialog cipherDialog() {
     return d;
 }
 
-Dialog cipherProgressDialog() {
-    Dialog d;
-    int totalCompletedCiphers = puzzleCipherCompleted + vigenereCipherCompleted;
-
-    d.messages[0].speaker = emptyChar;
-    d.messages[0].message = "";
-    return d;
-}
-
 Dialog lostMiniGameDialog(Minigame minigame) {
     Dialog d;
     d.identifier = DIALOG_MINIGAME_DEFEAT;
@@ -161,7 +169,7 @@ Dialog lostMiniGameDialog(Minigame minigame) {
             break;
         case MINIGAME_PLATFORMER:
             d.messages[0].speaker = horseChar;
-            d.messages[0].message = "I'm fast.";
+            d.messages[0].message = "Try all you want, but each time you appear, I'll crush your attempts. The track will bear witness to the futility of your challenges.";
             return d;
             break;
     }
@@ -188,7 +196,9 @@ Dialog wonMiniGameDialog(Minigame minigame) {
             d.messages[0].message = "Alas, it seems there's a contender who, by some misfortune, managed to outpace my unparalleled swiftness. A humbling revelation, indeed.";
             d.messages[1].speaker = horseChar;
             d.messages[1].message = "Perhaps this is finally my time to go. I must be ashamed of my descent of skill.";
-            finalDialogIndex = 2;
+            d.messages[2].speaker = horseChar;
+            d.messages[2].message = "And the key... here.";
+            finalDialogIndex = 3;
             break;
         case MINIGAME_CIPHER:
             d.messages[0].speaker = cipherChar;

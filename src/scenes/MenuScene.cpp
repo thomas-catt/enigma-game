@@ -170,7 +170,11 @@ Scene initMenuScene() {
 
     menuCurrentSelection = MENU_PLAY;
 
-    if (!ReadSaveFile(keysStore.rock, keysStore.horse, keysStore.cipher, lastSceneLocation, lastPlayerPosition)) {
+    vigenereCipherCompleted = false;
+    brailleCipherCompleted = false;
+    puzzleCipherCompleted = false;
+
+    if (!ReadSaveFile(keysStore.rock, keysStore.horse, keysStore.cipher, lastSceneLocation, guideIntroduced, lastPlayerPosition)) {
         newGame = true;
     }
 

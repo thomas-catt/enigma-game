@@ -34,7 +34,7 @@ void customSwap(T& a, T& b) {
     b = temp;
 }
 
-int puzzleCipherInit() {
+void puzzleCipherInit() {
     // Calculate the size of each sub-rectangle
     sf::Vector2u imageSize = puzzleCipherTexture.getSize();
     sf::Vector2u subRectSize(imageSize.x / puzzleCols, imageSize.y / puzzleRows);

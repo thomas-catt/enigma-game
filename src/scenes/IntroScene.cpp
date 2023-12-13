@@ -12,11 +12,11 @@
 const char introData[64][256] = {
         " ",
         "I was just loitering about around the jungle until...",
-        "I saw this intriguing yet visually uninteresting path.",
-        "I walked into it, and walked...",
-        "Until I realized there's no going back.",
+        "A plain path caught my eye...",
+        "I ventured deeper...",
+        "The path behind faded darker and darker....",
         "I was lost.",
-        "But I went further..."
+        "But something. Someone... pulled me in further..."
 };
 
 int currentIntro = -1;

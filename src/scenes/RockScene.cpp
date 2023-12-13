@@ -109,10 +109,12 @@ void RockSceneRender(sf::RenderWindow& window) {
 //    handleInput(player);
     // Update the game
 //    float dt = gameClock.restart().asSeconds();
-    float dt = (float)(framecount == REFRESH_RATE - 1);
-    timeElapsed += dt;
-    spawnRate();
-    updateRocks(sceneRocks, (20 + timeElapsed) / 1000, MaxRocks);
+    if (!isGamePaused) {
+        float dt = (float) (framecount == REFRESH_RATE - 1);
+        timeElapsed += dt;
+        spawnRate();
+        updateRocks(sceneRocks, (20 + timeElapsed) / 1000, MaxRocks);
+    }
 
     // Draw the game
     window.draw(ground.sprite);  // Draw ground first
