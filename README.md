@@ -15,7 +15,7 @@ This guide is for compiling on linux, although compiling on Windows is possible 
 
 The project dependencies can be installed by:
 ```sh
-sudo apt install git make cmake clion libsfml-dev
+sudo apt install git make cmake clang libsfml-dev
 ```
 Next, clone the repo, and compile the code.
 
