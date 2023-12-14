@@ -364,9 +364,25 @@ Scene initOptimusPrimeScene() {
     scene.colliderHitboxes[343] = sf::IntRect(1519, 866, 29, 47);
     scene.colliderHitboxes[344] = sf::IntRect(1590, 890, 20, 25);
 
+    scene.colliderHitboxes[345] = sf::IntRect(985, 1015, 15, 30);
+    scene.colliderHitboxes[346] = sf::IntRect(1143, 1022, 15, 30);
+    scene.colliderHitboxes[347] = sf::IntRect(1143, 1192, 15, 30);
+    scene.colliderHitboxes[348] = sf::IntRect(973, 1167, 15, 30);
+
 
     scene.animatedSprites[0] = guideChar;
     scene.animatedSprites[0].position = sf::Vector2f(1600, 900);
+    scene.animatedSprites[1] = stonePillarChar;
+    scene.animatedSprites[1].position = sf::Vector2f(990, 960);
+    scene.animatedSprites[2] = stonePillarChar;
+    scene.animatedSprites[2].position = sf::Vector2f(1150, 960);
+    scene.animatedSprites[3] = stonePillarChar;
+    scene.animatedSprites[3].position = sf::Vector2f(977, 1100);
+    scene.animatedSprites[4] = stonePillarChar;
+    scene.animatedSprites[4].position = sf::Vector2f(1150, 1130);
+
+    int nextNPCIndex = 5;
+    int nextInteractionIndex = 1;
 
     InteractionPoint talkToGuideInteraction;
     talkToGuideInteraction.name = INTERACTION_TALK;
@@ -377,8 +393,7 @@ Scene initOptimusPrimeScene() {
 
     scene.interactibles[0] = talkToGuideInteraction;
 
-    int nextNPCIndex = 1;
-    int nextHitboxIndex = 345;
+    int nextHitboxIndex = 349;
 
     if (!keysStore.rock) {
         scene.animatedSprites[nextNPCIndex] = rockChar;
@@ -392,7 +407,7 @@ Scene initOptimusPrimeScene() {
         talkToRockInteraction.dialog = rockDialog();
         talkToRockInteraction.associatedNPC = scene.animatedSprites[nextNPCIndex];
 
-        scene.interactibles[nextNPCIndex] = talkToRockInteraction;
+        scene.interactibles[nextInteractionIndex] = talkToRockInteraction;
         nextNPCIndex++;
         nextHitboxIndex++;
     }
@@ -409,7 +424,7 @@ Scene initOptimusPrimeScene() {
         talkToHorseInteraction.dialog = horseDialog();
         talkToHorseInteraction.associatedNPC = scene.animatedSprites[nextNPCIndex];
 
-        scene.interactibles[nextNPCIndex] = talkToHorseInteraction;
+        scene.interactibles[nextInteractionIndex] = talkToHorseInteraction;
         nextNPCIndex++;
     }
 
@@ -426,7 +441,7 @@ Scene initOptimusPrimeScene() {
         talkToCipherInteraction.dialog = cipherDialog();
         talkToCipherInteraction.associatedNPC = scene.animatedSprites[nextNPCIndex];
 
-        scene.interactibles[nextNPCIndex] = talkToCipherInteraction;
+        scene.interactibles[nextInteractionIndex] = talkToCipherInteraction;
         nextNPCIndex++;
     }
 

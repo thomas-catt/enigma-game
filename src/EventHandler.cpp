@@ -67,11 +67,12 @@ void onMovement(sf::Vector2f dir) {
  * */
 void onEscape() {
     if (isPopupOpen || isImagePopupOpen) return hidePopup();
-    if (currentScene.type == SCENE_MENU) return;
+    if (currentScene.type == SCENE_MENU || currentScene.location == SCENE_END) return;
     isGamePaused = !isGamePaused;
     isDialogOpen = false;
     isPopupOpen = false;
     isImagePopupOpen = false;
+    player.movementVector = sf::Vector2f(0, 0);
 }
 
 /* Finally, the EventHandler is the heart of all the event handling in the

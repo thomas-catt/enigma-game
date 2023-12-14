@@ -18,7 +18,7 @@ const char creditsData[64][256] = {
     "23L-2555 Armaghan Ahmed",
     "23L-3001 Arham Khurram",
     "23L-3066 M. Ibrahim",
-    "23L-XXXX Jabeen Zahra",
+    "23L-3065 Jabeen Zahra",
     "23L-XXXX Amar Waqar",
     "#",
     "#Technologies",

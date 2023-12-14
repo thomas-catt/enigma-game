@@ -1,10 +1,10 @@
 echo "Removing the following files/directories:";
 
-if [ -d "./cmake-build-default/" ]; then
-  rm -rf ./cmake-build-default;
-  echo "Deleted: ./cmake-build-default";
+if [ -d "./cmake-build-debug/" ]; then
+  rm -rf ./cmake-build-debug;
+  echo "Deleted: ./cmake-build-debug";
 else
-  echo "Skipped: ./cmake-build-default [not found]";
+  echo "Skipped: ./cmake-build-debug [not found]";
 fi
 
 if [ -d "./CMakeFiles/" ]; then

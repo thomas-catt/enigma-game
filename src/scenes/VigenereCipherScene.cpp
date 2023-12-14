@@ -1,5 +1,5 @@
-const std::string messageToDecipher = "Xqvlrv Embog";
-const std::string vigenereAnswer = "hello";
+//const std::string messageToDecipher = "Xqvlrv Embog";
+const std::string messageToDecipher = "Hajdrn Welyu";
 
 char vigenereCipherInput[255] = "";
 char vigenereCipherAnswer[255] = "cipher nigga";

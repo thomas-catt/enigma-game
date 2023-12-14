@@ -1,5 +1,3 @@
-const std::string brailleAnswer = "hello";
-
 char brailleCipherInput[255] = "";
 char brailleCipherAnswer[255] = "we ran out of ideas so fuck it, cipher nigga 2";
 int brailleCipherInputIndex = 0;
@@ -10,7 +8,7 @@ bool showBrailleSuccess = false;
 bool brailleTyping = false;
 
 void onBrailleRender(sf::RenderWindow& window) {
-    uiStatus = "Decipher: \"" + messageToDecipher + "\" - [Tab] Type answer";
+    uiStatus = "Solve the puzzle - [H] Hint - [Tab] Type answer";
     menuStatus = "[H] Hint - [Q] Exit\nDecipher the encrypted message \"" + messageToDecipher + "\" and press [Tab] to write your answer in the answer screen. Use the given hint if you are unsure.";
 
     if (brailleTyping) {

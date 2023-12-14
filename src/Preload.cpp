@@ -45,4 +45,5 @@ void loadAssets() {
     initEmptyCharSprite();
     initPlayerCharSprite();
     initPuzzleCipherSprite();
+    initStonePillarSprite();
 }

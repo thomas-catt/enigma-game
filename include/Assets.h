@@ -175,6 +175,25 @@ void initPuzzleCipherSprite()
 
 
 
+/* The pillar */
+
+NPC stonePillarChar;
+void initStonePillarSprite()
+{
+    stonePillarChar.path = "assets/sprites/FlyingRockStatue.png";
+    stonePillarChar.name = "Rock statue";
+    stonePillarChar.width = 80;
+    stonePillarChar.height = 160;
+
+    stonePillarChar.animFrames = 13;
+    stonePillarChar.animSpeed = 100;
+
+    if (!stonePillarChar.texture.loadFromFile(stonePillarChar.path))
+        std::cout << "Failed to load from file: " << stonePillarChar.path << std::endl;
+}
+
+
+
 /* Background constants */
 
 #define BACKGROUND_MENU_PATH "assets/imgs/ParallexBG.png"
