@@ -13,6 +13,7 @@ void resumeGame()
     isGamePaused = false;
     isDialogOpen = false;
     isPopupOpen = false;
+    isImagePopupOpen = false;
     gameMenuCurrentSelection = GAME_MENU_PLAY;
 }
 
@@ -158,12 +159,7 @@ void postInteraction(DialogID DialogIdentifier) {
     switch (DialogIdentifier) {
         case DIALOG_GUIDE_HELP:
             if (countKeys() == 3) {
-                newGame = true;
-                keysStore.cipher = false;
-                keysStore.rock = false;
-                keysStore.horse = false;
-                saveGame();
-                loadScene(initCreditsScene());
+                loadScene(initEndScreenTextScene());
             }
             break;
         case DIALOG_GUIDE_INTRODUCTION:
@@ -184,6 +180,7 @@ void postInteraction(DialogID DialogIdentifier) {
             loadScene(initPlatformerScene());
             break;
         case DIALOG_MINIGAME_VICTORY:
+            saveGame();
             break;
         case DIALOG_CIPHER_GOBACK:
             if (puzzleCipherCompleted && vigenereCipherCompleted && brailleCipherCompleted)

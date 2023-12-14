@@ -147,9 +147,9 @@ Dialog cipherDialog() {
     d.messages[0].speaker = cipherChar;
     d.messages[0].message = "Greetings traveller. What an honor to be visited by such an elegant creature.";
     d.messages[1].speaker = cipherChar;
-    d.messages[1].message = "However I present you with a challange.";
+    d.messages[1].message = "However I present you with a challenge.";
     d.messages[2].speaker = cipherChar;
-    d.messages[2].message = "My domain is full of mind boggling challanges. Solve them, in reward of doing so I shall grant you with the final key you're looking for.";
+    d.messages[2].message = "My domain is full of mind boggling challenges. Solve them, in reward of doing so I shall grant you with the final key you're looking for.";
     d.messages[3].speaker = emptyChar;
     d.messages[3].message = "Solve the ciphers to obtain the key.";
 

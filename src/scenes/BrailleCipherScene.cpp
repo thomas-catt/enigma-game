@@ -186,6 +186,7 @@ Scene initBrailleCipherScene() {
     scene.noView = true;
     scene.playerEnabled = false;
     scene.backgroundSpritePath = BACKGROUND_BRAILLE_PATH;
+    scene.musicEnabled = false;
 
     return scene;
 }

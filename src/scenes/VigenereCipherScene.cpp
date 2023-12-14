@@ -183,6 +183,7 @@ Scene initVigenereCipherScene() {
     scene.noView = true;
     scene.playerEnabled = false;
     scene.backgroundSpritePath = BACKGROUND_VIGENERE_PATH;
+    scene.musicEnabled = false;
 
     return scene;
 }

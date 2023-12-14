@@ -280,6 +280,7 @@ Scene initPuzzleCipherScene() {
     scene.backgroundEnabled = false;
     scene.playerEnabled = false;
     scene.noView = true;
+    scene.musicEnabled = false;
 
     return scene;
 }

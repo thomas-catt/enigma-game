@@ -67,6 +67,10 @@ void onOverrideRender(sf::RenderWindow& window) {
             onIntroRender(window);
             break;
 
+        case SCENE_END:
+            onEndScreenTextRender(window);
+            break;
+
         case SCENE_ROCK_GAME:
             RockSceneRender(window);
             break;

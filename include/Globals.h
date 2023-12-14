@@ -54,6 +54,8 @@ int currentDialogStrCharacterIndex = 0;
 NPC currentDialogNPC;
 Dialog minigameFeedbackDialog;
 bool showMinigameFeedbackDialog = false;
+int currentIntro = -1;
+bool introCompleted = false;
 
 bool puzzleCipherCompleted = false;
 bool vigenereCipherCompleted = false;

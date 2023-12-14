@@ -8,7 +8,7 @@ int platformerDistanceTravelled = 0;
 int platformerTargetDistance = 0;
 bool platformerGameLost = false;
 
-const int totalPlatformerObstacles = 32;
+const int totalPlatformerObstacles = 28;
 int platformerObstaclePositions[totalPlatformerObstacles];
 
 const int platformerBgLayers = 8;
@@ -102,7 +102,7 @@ void checkHorseCollision() {
 }
 
 void updatePlatformerGameSpeed() {
-    platformerGameSpeed += 0.004f;
+    platformerGameSpeed += 0.002f;
 }
 
 void checkPlatformerObstacle(sf::Sprite obstacleSprite) {
@@ -158,6 +158,7 @@ Scene initPlatformerScene() {
     scene.noView = true;
     scene.playerEnabled = false;
     scene.backgroundEnabled = false;
+    scene.musicFilePath = MUSIC_PLATFORMER_PATH;
 
     scene.animatedSprites[0] = playerChar;
     scene.animatedSprites[0].position = sf::Vector2f(500, platformerPlayerOrgY);

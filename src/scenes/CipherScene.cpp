@@ -35,6 +35,9 @@ Scene initCipherScene() {
         scene.backgroundSpritePath = BACKGROUND_CIPHER_COMPLETE_PATH;
     scene.foregroundEnabled = true;
     scene.foregroundSpritePath = FOREGROUND_CIPHER_PATH;
+    scene.musicFilePath = MUSIC_MAZE_PATH;
+    if (completedCiphers > 0)
+        scene.musicEnabled = false;
 
     scene.defaultPlayerPos = sf::Vector2f(100, 100);
     scene.defaultPlayerDir = PLAYER_SPRITE_RIGHT;

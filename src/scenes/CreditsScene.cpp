@@ -16,8 +16,8 @@ const char creditsData[64][256] = {
     "A top-down platformer game presented by:",
     "#",
     "23L-2555 Armaghan Ahmed",
-    "23L-XXXX Arham Khurram",
-    "23L-XXXX M. Ibrahim",
+    "23L-3001 Arham Khurram",
+    "23L-3066 M. Ibrahim",
     "23L-XXXX Jabeen Zahra",
     "23L-XXXX Amar Waqar",
     "#",
@@ -87,6 +87,8 @@ Scene initCreditsScene() {
     scene.location = SCENE_CREDITS;
     scene.playerEnabled = false;
     scene.backgroundEnabled = false;
+    scene.musicFilePath = MUSIC_CREDITS_PATH;
+    scene.musicEnabled = !(keysStore.cipher && keysStore.horse && keysStore.rock);
 
     totalCreditsHeight = SCREEN_H;
 

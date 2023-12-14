@@ -19,9 +19,7 @@ const char introData[64][256] = {
         "But something. Someone... pulled me in further..."
 };
 
-int currentIntro = -1;
 int introSecondsPassed = INTRO_SCREEN_TIME - 1;
-bool introCompleted = false;
 
 void onIntroRender(sf::RenderWindow& window);
 
@@ -33,8 +31,12 @@ Scene initIntroScene(int lastIntro = -1, int lastSecondsPassed = INTRO_SCREEN_TI
     scene.location = SCENE_INTRO;
     scene.playerEnabled = false;
     scene.backgroundEnabled = false;
+    scene.musicFilePath = MUSIC_SELFTALK_PATH;
+
     currentIntro = lastIntro;
     introSecondsPassed = lastSecondsPassed;
+
+    scene.musicEnabled = currentIntro < 1;
 
     introCompleted = false;
 
@@ -44,6 +46,7 @@ Scene initIntroScene(int lastIntro = -1, int lastSecondsPassed = INTRO_SCREEN_TI
 void onIntroRender(sf::RenderWindow& window) {
     if (introSecondsPassed == INTRO_SCREEN_TIME && introData[currentIntro + 1][0] == '\0') {
         if (!introCompleted) {
+
             loadScene(initTestScene());
 
             if (newGame) {

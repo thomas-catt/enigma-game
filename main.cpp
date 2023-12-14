@@ -1,5 +1,6 @@
 /* SFML */
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 /* Native */
 #include <iostream>
@@ -21,6 +22,7 @@
 #include "src/scenes/OverworldScene.cpp"
 #include "src/scenes/IntroScene.cpp"
 #include "src/scenes/CreditsScene.cpp"
+#include "src/scenes/EndScene.cpp"
 #include "src/scenes/MenuScene.cpp"
 #include "src/scenes/SnakeScene.cpp"
 #include "src/scenes/RockScene.cpp"
@@ -33,6 +35,7 @@
 
 /* Source files */
 #include "src/UI.cpp"
+#include "src/Audio.cpp"
 #include "src/SceneInit.cpp"
 #include "src/Physics.cpp"
 #include "src/Game.cpp"

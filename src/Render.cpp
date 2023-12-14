@@ -87,6 +87,7 @@ void loadScene(Scene scene, bool positionFromSaveFile)
             sceneLoaded = true;
         }
     }
+//    currentMusic.setVolume(loadingScene);
     if (loadingScene < 100 && loadingScene > 0) return;
 
     clearScene();
@@ -105,6 +106,11 @@ void loadScene(Scene scene, bool positionFromSaveFile)
             std::cout << "Failed to load from file: " << currentScene.foregroundSpritePath << std::endl;
 
         currentScene.foregroundSprite.setTexture(currentScene.foreground);
+    }
+
+    if (currentScene.musicEnabled) {
+        playMusic(currentScene.musicFilePath);
+        currentMusic.setLoop(currentScene.musicLooping);
     }
 
 
@@ -523,12 +529,13 @@ void Render(sf::RenderWindow &window)
         if (currentScene.backgroundEnabled)
             window.draw(currentScene.backgroundSprite);
 
-        NPCsRenderLoop(window);
-        if (!isGamePaused)
-            interactionLoop(window);
-
         if (currentScene.playerEnabled)
             window.draw(player.sprite);
+
+        NPCsRenderLoop(window);
+
+        if (!isGamePaused)
+            interactionLoop(window);
 
         if (currentScene.foregroundEnabled)
             window.draw(currentScene.foregroundSprite);

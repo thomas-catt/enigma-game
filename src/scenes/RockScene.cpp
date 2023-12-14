@@ -142,11 +142,12 @@ Scene initRockScene() {
     scene.location = SCENE_ROCK_GAME;
     scene.backgroundSpritePath = BACKGROUND_ROCK_PATH;
     scene.horizontalMovementOnly = true;
-    scene.defaultPlayerPos = sf::Vector2f(400, rockGameGroundheight - 64);
+    scene.defaultPlayerPos = sf::Vector2f(400, rockGameGroundheight - PLAYER_SPRITE_HEIGHT);
     scene.defaultPlayerDir = PLAYER_SPRITE_RIGHT;
     scene.playerSpeedMultiplier = 2;
 //    scene.view = sf::View(sf::FloatRect(scene.defaultPlayerPos.x, scene.defaultPlayerPos.y, 960, 960));
     scene.view = sf::View(sf::FloatRect(scene.defaultPlayerPos.x, scene.defaultPlayerPos.y, 800, 600));
+    scene.musicFilePath = MUSIC_ROCK_PATH;
 
     return scene;
  }
