@@ -1,5 +1,5 @@
 # Realm Of Enigmas
-> A fork of [@lw-lonewolf/Realm-of-Enigmas](github.com/lw-lonewolf/Realm-of-Enigmas/tree/engine-development)
+> A fork of [@lw-lonewolf/Realm-of-Enigmas](https://github.com/lw-lonewolf/Realm-of-Enigmas/tree/engine-development)
 > Made as a university project.
 
 A C++ based graphics top-down platformer game made with SFML.
