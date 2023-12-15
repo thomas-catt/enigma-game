@@ -143,7 +143,7 @@ void playerLoop()
 
         player.sprite.move(effectiveMovementVector);
 
-        std::cout << "player position: " << player.sprite.getPosition().x << " " << player.sprite.getPosition().y << std::endl;
+//        std::cout << "player position: " << player.sprite.getPosition().x << " " << player.sprite.getPosition().y << std::endl;
 
         if (player.movementVector.x == 0 && player.movementVector.y == 0)
             player.moving = false;

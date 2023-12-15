@@ -408,6 +408,7 @@ Scene initOptimusPrimeScene() {
         talkToRockInteraction.associatedNPC = scene.animatedSprites[nextNPCIndex];
 
         scene.interactibles[nextInteractionIndex] = talkToRockInteraction;
+        nextInteractionIndex++;
         nextNPCIndex++;
         nextHitboxIndex++;
     }
@@ -425,6 +426,7 @@ Scene initOptimusPrimeScene() {
         talkToHorseInteraction.associatedNPC = scene.animatedSprites[nextNPCIndex];
 
         scene.interactibles[nextInteractionIndex] = talkToHorseInteraction;
+        nextInteractionIndex++;
         nextNPCIndex++;
     }
 
@@ -442,6 +444,7 @@ Scene initOptimusPrimeScene() {
         talkToCipherInteraction.associatedNPC = scene.animatedSprites[nextNPCIndex];
 
         scene.interactibles[nextInteractionIndex] = talkToCipherInteraction;
+        nextInteractionIndex++;
         nextNPCIndex++;
     }
 
